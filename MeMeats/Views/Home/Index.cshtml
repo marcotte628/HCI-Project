@@ -1,0 +1,42 @@
+﻿@model string
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+        sqlQueryModule.factory('bootstrappedData', function () {
+            return { list: @Html.Raw(Model) }
+    });
+    
+</script>
+
+<div class="container" ng-controller="homePageController">
+    <div class="container jumbotron text-center">
+        <h1> hello there </h1>
+    </div>
+
+        <div class="displayTable">
+            
+            <table id="queryTable" class="table table-sm table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td class="bold-text" ng-repeat="(key, data) in tableDisplay">
+                            {{key}}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in filteredList">
+                        <td ng-repeat="(key, data) in tableDisplay">
+                            {{item[key]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul uib-pagination ng-model="currentPage"
+                total-items="list.length"
+                max-size="maxSize"
+                boundary-links="true"></ul>
+        </div>
+    </div>
