@@ -93,3 +93,7 @@ ul.topnav {
     float: left;
 }
 
+
+.login {
+    background-image: url('~/images/bg.png');
+}

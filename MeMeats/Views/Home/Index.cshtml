@@ -2,22 +2,158 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
 }
 
 <script type="text/javascript">
         sqlQueryModule.factory('bootstrappedData', function () {
             return { list: @Html.Raw(Model) }
     });
-    
+
 </script>
 
-<div class="container" ng-controller="homePageController">
-    <div class="container jumbotron text-center">
-        <h1> hello there </h1>
+<div ng-controller="homePageController">
+    <div class="card horizontal">
+        <div class="card-stacked">
+            <h3 style="position:absolute; margin-left: 14em; margin-top: 0em;
+                        margin-bottom:4em;padding-top: 0.4em;">
+                Home
+            </h3>
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col s4 m2"></div>
+        <div class="col s8 m5" style="margin-top: 5em;">
+            <div class="input-field">
+                <input id="search" type="search">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+        </div>
+        <div class="col s2 m1"></div>
+        <div class="col s4 m2" style="margin-top: 5em;">
+            <a  ng-click="redirect('add')" class="btn btn-large waves-effect waves-light green">
+                <i class="material-icons">add</i> Add Patient
+            </a>
+        </div>
+        <div class="col s4 m2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col s2 m1"></div>
+        <div class="col s12 m10">
+            <div class="card">
+                <div class="card-content ">
+                    <span class="card-title">List of Patients:</span>
+                    <!--Data Table-->
+                    <table id="patients" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Patient Information</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width:15%;"><img ng-click="redirect('show')" src="../images/default.PNG" style="height: 8em;"></td>
+                                <!--https://catking.in/chandni-kapadia/default-profile-2/-->
+                                <td>
+                                    <p>
+                                        Name: ABCD
+                                    </p>
+                                    <p>
+                                        DOB: 10-10-1990
+                                    </p>
+                                    <p>
+                                        Last visited: 10-10-2018
+                                    </p>
+                                </td>
+                                <td style="width: 20%;">
+                                    <button class="btn-floating btn-large waves-effect waves-light yellow" ng-click="redirect('compare')">
+                                        <i class="material-icons">insert_chart</i>
+                                    </button>
+                                    <button class="btn-floating btn-large waves-effect waves-light green" ng-click="redirect('edit')">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button class="btn-floating btn-large waves-effect waves-light red" ng-click="redirect('delete')">
+                                        <i class="material-icons">delete_forever</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:15%;"><img ng-click="redirect('show')" src="../images/happy.PNG" style="height: 8em;"></td>
+                                <!--https://www.amazon.com/Smiley-Tire-Cover-popular-contact/dp/B001FO9WEU-->
+                                <td>
+                                    <p>
+                                        Name: ABCD
+                                    </p>
+                                    <p>
+                                        DOB: 10-10-1990
+                                    </p>
+                                    <p>
+                                        Last visited: 10-10-2018
+                                    </p>
+                                </td>
+                                <td style="width: 20%;">
+                                    <button class="btn-floating btn-large waves-effect waves-light yellow" ng-click="redirect('compare')">
+                                        <i class="material-icons">insert_chart</i>
+                                    </button>
+                                    <button class="btn-floating btn-large waves-effect waves-light green" ng-click="redirect('edit')">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button class="btn-floating btn-large waves-effect waves-light red" ng-click="redirect('delete')">
+                                        <i class="material-icons">delete_forever</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:15%;"><img ng-click="redirect('show')" src="../images/default.PNG" style="height: 8em;"></td>
+                                <!--https://catking.in/chandni-kapadia/default-profile-2/-->
+                                <td>
+                                    <p>
+                                        Name: ABCD
+                                    </p>
+                                    <p>
+                                        DOB: 10-10-1990
+                                    </p>
+                                    <p>
+                                        Last visited: 10-10-2018
+                                    </p>
+                                </td>
+                                <td style="width: 20%;">
+                                    <button class="btn-floating btn-large waves-effect waves-light yellow" ng-click="redirect('compare')">
+                                        <i class="material-icons">insert_chart</i>
+                                    </button>
+                                    <button class="btn-floating btn-large waves-effect waves-light green" ng-click="redirect('edit')">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button class="btn-floating btn-large waves-effect waves-light red" ng-click="redirect('delete')">
+                                        <i class="material-icons">delete_forever</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Patient Information</th>
+                                <th>Actions</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col s4 m1"></div>
+    </div>
+
+ </div>
+
+@*
         <div class="displayTable">
-            
+
             <table id="queryTable" class="table table-sm table-striped table-bordered table-hover">
                 <thead>
                     <tr>
@@ -39,4 +175,4 @@
                 max-size="maxSize"
                 boundary-links="true"></ul>
         </div>
-    </div>
+    </div>*@

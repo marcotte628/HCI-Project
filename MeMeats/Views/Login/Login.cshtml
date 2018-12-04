@@ -4,8 +4,51 @@
 }
 
 
-<div class="container">
+<div class="login container">
 
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Register</h4>
+            <form>
+                <div class="input-field inline">
+                    <input id="username" type="text" class="validate">
+                    <label for="Username">Enter Username*</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                </div>
+                <div class="input-field inline">
+                    <input id="setpassword" type="password" class="validate">
+                    <label for="setpassword">Enter Password*</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                </div>
+                <div class="input-field inline">
+                    <input id="confirmpassword" type="password" class="validate">
+                    <label for="confirmpassword">Confirm Password*</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                </div>
+                <p>
+                    <label>
+                        <input class="with-gap" name="group1" type="radio" checked />
+                        <span>Doctor</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="group1" type="radio" />
+                        <span>Nurse</span>
+                    </label>
+                </p>
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+                <button class="btn modal-close waves-effect waves-green" type="submit">
+                    Reset <i class="material-icons bottom">cancel</i>
+                </button>
+            </form>
+        </div>
+    </div>
+    
     <h2>Login</h2>
 
     <div ng-app="sqlQueryModule" ng-controller="loginController">

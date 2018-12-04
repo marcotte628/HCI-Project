@@ -148,8 +148,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddPatientController.cs" />
+    <Compile Include="Controllers\ComparePatientController.cs" />
+    <Compile Include="Controllers\EditPatientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PatientInfoController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,17 +173,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\default.PNG" />
     <Content Include="images\happy.PNG" />
+    <Content Include="images\logo.jpg" />
     <Content Include="images\LOGO.PNG" />
     <Content Include="js\ai.0.22.9-build00167.js" />
     <Content Include="js\ai.0.22.9-build00167.min.js" />
+    <Content Include="js\js\addPatientController.js" />
+    <Content Include="js\js\comparePatientController.js" />
+    <Content Include="js\js\custom.js" />
+    <Content Include="js\js\editPatientController.js" />
     <Content Include="js\js\homePageController.js" />
     <Content Include="js\js\loginController.js" />
     <Content Include="js\js\navController.js" />
+    <Content Include="js\js\patientInfoController.js" />
     <Content Include="js\js\registerController.js" />
-    <Content Include="js\Logs\logProcessorController.js" />
-    <Content Include="js\Queries\customQueryController.js" />
-    <Content Include="js\Queries\storedProcedureController.js" />
     <Content Include="js\sql-query-module.js" />
     <Content Include="modules\ui-bootstrap-tpls-2.5.0.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -211,6 +220,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\AddPatient\AddPatient.cshtml" />
+    <Content Include="Views\EditPatient\EditPatient.cshtml" />
+    <Content Include="Views\PatientInfo\PatientInfo.cshtml" />
+    <Content Include="Views\ComparePatient\ComparePatient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -39,11 +39,19 @@ sqlQueryModule.controller("homePageController", function ($scope, $http, $window
         });
     }
 
-    $scope.navigate = function (location) {
+    $scope.redirect = function (location) {
         var uid = window.location.href.split('?')[1].split('=')[1];
         
-        if (location === 'home') {
-            $window.location.href = '/Home?uid=' + uid;
+        if (location === 'compare') {
+            $window.location.href = '/ComparePatient?uid=' + uid;
+        } else if (location === 'edit') {
+            $window.location.href = '/EditPatient?uid=' + uid;
+        }  else if (location === 'add') {
+            $window.location.href = '/AddPatient?uid=' + uid;
+        } else if (location === 'show') {
+            $window.location.href = '/PatientInfo?uid=' + uid;
+        } else if (location === 'delete') {
+            alert("DELETE!");
         }
     }
 

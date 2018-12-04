@@ -2,6 +2,26 @@
 
 <html ng-app="sqlQueryModule">
 <head>
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Data Table-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+
     <!--Import Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <!-- jQuery-->
@@ -15,24 +35,72 @@
     <script src="https://rawgithub.com/angular-ui/angular-ui/master/build/angular-ui.js"></script>
     <!-- Included project files -->
     <script src="~/js/sql-query-module.js"></script>
-    <script src="~/js/Queries/storedProcedureController.js"></script>
-    <script src="~/js/Queries/customQueryController.js"></script>
     <script src="~/js/js/homePageController.js"></script>
     <script src="~/js/js/loginController.js"></script>
     <script src="~/js/js/registerController.js"></script>
     <script src="~/js/js/navController.js"></script>
+    <script src="~/js/js/addPatientController.js"></script>
+    <script src="~/js/js/comparePatientController.js"></script>
+    <script src="~/js/js/editPatientController.js"></script>
+    <script src="~/js/js/patientInfoController.js"></script>
+    @*<script src="~/js/js/custom.js"></script>*@
     <link href="~/css/styles.css" rel="stylesheet" />
     <!-- General -->
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <div ng-app="sqlQueryModule" ng-controller="navController">
-    <ul class="topnav">
-        <li><img src="~/images/LOGO.PNG" width="55" /></li>
-        <li><a class="active" ng-click="navigate('home')">Home</a></li>
-        <li class="right"><a ng-click="navigate('logout')">Logout</a></li>
-    </ul>
+        @*<nav style="height: 13em;">
+            <div class="nav-wrapper purple darken-3">
+                <!--Logo Credits: https://www.brandcrowd.com/logo-design/details/28933-->
+                <a href="#!" class="brand-logo center">
+                    <img src="../images/logo.jpg" height="95">
+                </a>
+                <ul class="hide-on-med-and-down">
+                    <li class="left">
+                        <a href="#">
+                            <h1>MANS</h1>
+                            <h5>  Health Tracking System</h5>
+                        </a>
+                    </li>
+                    <li class="right" style="margin-right: 1px;">
+                        <form>
+                            <div class="input-field inline">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name" style="color: white;">Username*</label>
+                            </div>
+                            <br />
+                            <div class="input-field inline">
+                                <input id="password" type="password" class="validate">
+                                <label for="password" style="color: white;">Enter Password*</label>
+                            </div>
+                            <div class="card-action">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">
+                                    Login
+                                    <i class="material-icons">send</i>
+                                </button>
+                                <!-- Modal Trigger -->
+                                <button data-target="modal1" align="center"
+                                        class="btn modal-trigger waves-effect waves-light">
+                                    Register
+                                </button>
+                            </div>
+                        </form>
+                </ul>
+            </div>
+        </nav>*@
+        <ul class="topnav">
+            <li><img src="~/images/LOGO.PNG" width="91" /></li>
+            <li><a class="active" ng-click="navigate('home')">
+                <h4>MANS</h4>
+                <h6>  Health Tracking System</h6></a></li>
+
+            <li *ngIf="False" class="right"><a ng-click="navigate('logout')">Logout</a></li>
+        </ul>
     </div>
     <div>
         @RenderBody()
