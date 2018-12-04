@@ -20,7 +20,7 @@ namespace HCIProject.Controllers
             string cut = Request.QueryString["info"];
             string[] values = { cut };
             //call query DB
-            string content = _builder.GetQueryResult("GetForSaleItemsByCut", parameters, values);
+            string content = _builder.GetQueryResult("GetData", parameters, values);
             return Content(content);
         }
 

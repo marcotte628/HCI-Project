@@ -112,33 +112,14 @@ namespace HCIProject.Models.QueryHandler
 
             //login
             Queries.Add("FindAccountByUsernamePassword", "SELECT * FROM Accounts where username = @username AND password = @password;");
-
-            //home
-            Queries.Add("GetAllForSaleItems", "SELECT (select C.Name from Cuts C where C.CutID = F.CutID),F.quantity, F.priceperpound, F.Image, A.Name FROM ForSaleItems F, Accounts A;");
-            Queries.Add("GetForSaleItemsByPrice", "SELECT (select C.Name from Cuts C where C.CutID = F.CutID),F.quantity, F.priceperpound, F.Image, A.Name"
-                + " FROM ForSaleItems F, Accounts A WHERE PricePerPound < @lowend AND PricePerPound > @highend;");
-            Queries.Add("GetForSaleItemsByLocation", "SELECT (select C.Name from Cuts C where C.CutID = F.CutID),F.quantity, F.priceperpound, F.Image, A.Name"
-                + " FROM ForSaleItems F, Accounts A WHERE A.Zipcode in @zipcodetable;");
-            Queries.Add("GetForSaleItemsByCut", "SELECT C.Name, F.quantity, F.priceperpound, F.Image, A.Name FROM Cuts C, ForSaleItems F, Accounts A"
-                + " WHERE C.Name = @cut AND C.CutID = F.CutID AND A.UserID = F.UserID;");
-            Queries.Add("GetForSaleItemsByFarmerRating", "SELECT (select C.Name from Cuts C where C.CutID = F.CutID),F.quantity, F.priceperpound, F.Image, A.Name"
-                + " FROM ForSaleItems F, Accounts A WHERE(A.NumPoints / A.NumReviews) >= @rating;");
-            Queries.Add("GetAllFarmers", "Select * from Accounts where Type = 1;");
-
+           
             //user pages
             Queries.Add("GetAccountInfoByUserID", "Select * FROM Accounts where UserID = @userID;");
             Queries.Add("GetAllAccountsFollowedByUserID", "SELECT [Email],[Phone],[Street],[Town],[State],[Zipcode],[NumReviews],[NumPoints],[Type],[Image],[Name]"
                 + " FROM Accounts A Where A.UserID In(SELECT[FollowedID] FROM [dbo].[Follows] WHERE UserID = @userID);");
             Queries.Add("GetAllAcountsFollowingUserID", "SELECT [NumReviews],[NumPoints],[Type],[Image],[Name], [UserID]"
                 + " FROM Accounts A Where A.UserID In(SELECT[FollowedID] FROM [dbo].[Follows] WHERE FollowedID = @userID);");
-            Queries.Add("GetAllForSaleItemsForUserID", "SELECT (select C.Name from Cuts C where C.CutID = F.CutID),F.quantity, F.priceperpound, F.Image, A.Name"
-                + " FROM ForSaleItems F, Accounts A WHERE F.UserID = A.UserID");
-            Queries.Add("GetForSaleItemsByCutAndID", "SELECT C.Name, F.quantity, F.priceperpound, F.Image, A.Name FROM Cuts C, ForSaleItems F, Accounts A"
-                + " WHERE C.Name = @cut AND C.CutID = F.CutID AND A.UserID = F.UserID AND F.UserID = @userID;");
-            Queries.Add("AddNewForSaleItem", "INSERT INTO ForSaleItems (UserID, CutID, quantity, PricePerPound, Image) " +
-                "VALUES (@userid, (select C.CutID from Cuts C,  where C.Name = @cut), @amount,  @price, null);");
-
-            // "@userid", "@farm", "@cut", "@location", "@amount", "@price"
+           
         }
 
     }

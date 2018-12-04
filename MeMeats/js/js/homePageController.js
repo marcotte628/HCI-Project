@@ -7,7 +7,7 @@ sqlQueryModule.controller("homePageController", function ($scope, $http, $window
 
     $scope.GetData = function (type) {
         
-        $scope.searchButtonText = "Loading Results";
+    $scope.searchButtonText = "Loading Results";
         var url = '/Home/GetData?info=' + info;
         var promise = $scope.executeQuery(url);
         promise.then(function (myList) {
