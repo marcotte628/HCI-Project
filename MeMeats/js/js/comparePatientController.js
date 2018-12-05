@@ -1,5 +1,5 @@
 ﻿
-sqlQueryModule.controller("addPatientController", function ($scope, $http, $window) {
+sqlQueryModule.controller("comparePatientController", function ($scope, $http, $window) {
 
     $scope.redirect = function (location) {
         var uid = window.location.href.split('?')[1].split('=')[1];

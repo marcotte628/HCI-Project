@@ -1,4 +1,13 @@
 ﻿
+
+#xFilterScroll, #yFilterScroll {
+    padding: 2px;
+    overflow: auto;
+    width: 25em;
+    height: 9em;
+    border: 1px solid #ccc;
+}
+
 .displayTable {
     margin-left: 100px;
     margin-right: 100px;

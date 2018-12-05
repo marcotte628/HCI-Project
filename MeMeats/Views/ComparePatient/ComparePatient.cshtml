@@ -1,7 +1,142 @@
 ﻿
 @{
-    ViewBag.Title = "ComparePatient";
+    ViewBag.Title = "Compare Patient";
 }
 
-<h1>ComparePatient</h1>
 
+
+<div ng-controller="comparePatientController">
+
+    <div class="col s16 m12">
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <i class="material-icons" style="padding-top:0.5em;padding-bottom:0.5em;">
+                    <a ng-click="redirect('home')" class="btn-floating btn-large waves-effect waves-light red">
+                        <i class="material-icons">chevron_left</i>
+                    </a>
+                </i>
+                <h3 style="position: absolute;margin-left: 9.5em;margin-top: 0em; padding-top: 0.4em;">
+                    Compare Patient Information
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s1 m1"></div>
+        <div class="col s8 m5">
+            <div class="row">
+                <div class="col s1 m5">
+                    <div class="card" style="width: 10em;">
+                        <div class="card-image">
+                            <img src="../images/default.PNG" style="height: 9em;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s2 m7">
+                    <p>
+                        Name: ABCD
+                    </p>
+                    <p>
+                        DOB: 10-10-1990
+                    </p>
+                    <p>
+                        Last visited: 10-10-2018
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <h5>Filters for X-Axis:</h5>
+                <div id="xFilterScroll">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group1" type="radio" checked />
+                            <span>Height</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group1" type="radio" />
+                            <span>Weight</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group1" type="radio" />
+                            <span>Blood Pressure</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group1" type="radio" />
+                            <span>Blood Pressure</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <h5>Filters for Y-Axis:</h5>
+                <div id="yFilterScroll">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group2" type="radio" checked />
+                            <span>Height</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group2" type="radio" />
+                            <span>Weight</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group1" type="radio" />
+                            <span>Blood Pressure</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group1" type="radio" />
+                            <span>Blood Pressure</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 m5">
+            <div class="row">
+                <img src="~/images/Charts.PNG" style="height: 40em;"/>
+                @*<div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Patient Information:</span>
+                        <p>
+                            I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.
+                        </p>
+                    </div>
+                </div>*@
+            </div>
+            <div class="row">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Notes:</span>
+                        <p>
+                            I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="diagnostics">
+                    Show Diagnostics <i class="material-icons bottom">insert_chart</i>
+                </button>
+            </div>
+        </div>
+        <div class="col s1 m1"></div>
+    </div>
+
+</div> 
