@@ -1,4 +1,4 @@
-﻿using HCIProject.Models.QueryHandler;
+﻿using HCIProject.Models.DataRetriever;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace MeMeats.Controllers
 {
     public class PatientInfoController : Controller
     {
-        private QueryResultBuilder _builder = new QueryResultBuilder();
+        private DataRetriever _builder = new DataRetriever();
         // GET: PatientInfo
         public ActionResult Index()
         {

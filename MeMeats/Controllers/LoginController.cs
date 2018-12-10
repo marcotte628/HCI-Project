@@ -1,4 +1,4 @@
-﻿using HCIProject.Models.QueryHandler;
+﻿using HCIProject.Models.DataRetriever;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace HCIProject.Controllers
 {
     public class LoginController : Controller
     {
-        private QueryResultBuilder _builder = new QueryResultBuilder();
+        private DataRetriever _builder = new DataRetriever();
         // GET: Login
         public ActionResult Index()
         {

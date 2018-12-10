@@ -1,26 +1,31 @@
-﻿using HCIProject.Models.QueryHandler;
+﻿using HCIProject.Models.DataRetriever;
 using System.Web.Mvc;
 
 namespace HCIProject.Controllers
 {
     public class HomeController : Controller
     {
-        private QueryResultBuilder _builder = new QueryResultBuilder();
+        private DataRetriever dataretreiver = new DataRetriever();
         public ActionResult Index()
         {
-            return View("Index", "", _builder.GetNoResult()); 
+            return View("Index", "", dataretreiver.GetNoResult()); 
         }
 
         [HttpGet]
-        public ActionResult GetData(string type)
+        public ActionResult GetData()
         {
-            //parameters
-            string[] parameters = { "@cut" };
+
             // param value
-            string cut = Request.QueryString["info"];
-            string[] values = { cut };
+            string uid = Request.QueryString["uid"];
+
+            // get all data from the Data folder
+            // strip out all data that does not have the given uid
+            // organize into json object 
+            // send to front
+
             //call query DB
-            string content = _builder.GetQueryResult("GetData", parameters, values);
+            string content = dataretreiver.GetAllPatientData();
+            content = dataretreiver.GetNoResult();
             return Content(content);
         }
 

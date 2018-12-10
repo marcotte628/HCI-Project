@@ -33,7 +33,7 @@
         </div>
         <div class="col s2 m1"></div>
         <div class="col s4 m2" style="margin-top: 5em;">
-            <a  ng-click="redirect('add')" class="btn btn-large waves-effect waves-light green">
+            <a ng-click="redirect('add')" class="btn btn-large waves-effect waves-light green">
                 <i class="material-icons">add</i> Add Patient
             </a>
         </div>
@@ -149,30 +149,40 @@
         <div class="col s4 m1"></div>
     </div>
 
- </div>
 
+    <div class="displayTable">
 
-        @*<div class="displayTable">
-
-            <table id="queryTable" class="table table-sm table-striped table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <td class="bold-text" ng-repeat="(key, data) in tableDisplay">
-                            {{key}}
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="item in filteredList">
-                        <td ng-repeat="(key, data) in tableDisplay">
-                            {{item[key]}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <ul uib-pagination ng-model="currentPage"
-                total-items="list.length"
-                max-size="maxSize"
-                boundary-links="true"></ul>
-        </div>
-    </div>*@
+        <table id="queryTable" class="table table-sm table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td class="bold-text" ng-repeat="(key, data) in tableDisplay">
+                        {{key}}
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in filteredList">
+                    <td style="width:15%;"><img ng-click="redirect('show')" src="../images/default.PNG" style="height: 8em;"></td>
+                    <td >
+                        {{item['Patient']}}
+                    </td>
+                    <td style="width: 20%;">
+                        <button class="btn-floating btn-large waves-effect waves-light purple" ng-click="redirect('compare')">
+                            <i class="material-icons">insert_chart</i>
+                        </button>
+                        <button class="btn-floating btn-large waves-effect waves-light light-blue" ng-click="redirect('edit')">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button class="btn-floating btn-large waves-effect waves-light orange" ng-click="redirect('delete')">
+                            <i class="material-icons">delete_forever</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul uib-pagination ng-model="currentPage"
+            total-items="list.length"
+            max-size="maxSize"
+            boundary-links="true"></ul>
+    </div>
+</div>

@@ -1,15 +1,15 @@
-﻿using HCIProject.Models.QueryHandler;
+﻿using HCIProject.Models.DataRetriever;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MeMeats.Controllers
+namespace HCIProject.Controllers
 {
     public class ComparePatientController : Controller
     {
-        private QueryResultBuilder _builder = new QueryResultBuilder();
+        private DataRetriever _builder = new DataRetriever();
         // GET: ComparePatient
         public ActionResult Index()
         {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace HCIProject.Models.QueryHandler
+namespace HCIProject.Models.DataRetriever
 {
     public class ResultParser
     {

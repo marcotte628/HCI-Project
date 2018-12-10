@@ -1,0 +1,1 @@
+﻿[{ Photo: '...', Patient: "[{Name:' ABCD' DOB: '10/10/1990', Last Visit: '10/10/2018'},]", Actions: '...'},{ Photo: '...', Patient: '...', Actions: '...'},{ Photo: '...', Patient: '...', Actions: '...'},{ Photo: '...', Patient: '...', Actions: '...'},{ Photo: '...', Patient: '...', Actions: '...'},]
