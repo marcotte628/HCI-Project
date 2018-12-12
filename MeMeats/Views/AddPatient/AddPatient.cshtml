@@ -33,29 +33,23 @@
                 <div class="card-content">
                     <span class="card-title">Enter Patient Information:</span>
                     <form>
-                        <div class="input-field inline">
-                            <input id="name" type="text" class="validate">
-                            <label for="name">Name*</label>
-                        </div>
-                        <div class="input-field inline">
-                            <input type="text" class="datepicker">
-                            <label for="dob" style="width: 13em;">Date of Birth*</label>
-                        </div>
-                        <div class="input-field inline">
-                            <input id="height" type="number" class="validate">
-                            <label for="height">Height(cm)*</label>
-                        </div>
-                        <div class="input-field inline">
-                            <input id="weight" type="number" class="validate">
-                            <label for="weight">Weight(cm)*</label>
-                        </div>
+                        <label for="name">Name*</label>
+                        <input id="name" type="text" class="validate" ng-model="name">
+                        <label for="dob" style="width: 13em;">Date of Birth*</label>
+                        <input type="text" id="dob" class="datepicker" ng-model="DOB">
+                        <label for="height">Height(cm)*</label>
+                        <input id="height" type="number" class="validate" ng-model="height"><br />
+                        <label for="weight">Weight(lbs)*</label>
+                        <input id="weight" type="number" class="validate" ng-model="weight">
+                        <label for="notes">Notes*</label>
+                        <textarea id="notes" rows="10" cols="50" style="resize: none; height: 5em;" ng-model="notes"></textarea>
                     </form>
                 </div>
                 <div class="card-action">
-                    <button class="btn waves-effect waves-light" type="submit" name="add">
-                        Submit <i class="material-icons bottom">add</i>
+                    <button class="btn waves-effect waves-light" ng-click="add()">
+                        Add Patient <i class="material-icons bottom">add</i>
                     </button>
-                    <button class="btn waves-effect waves-light" type="submit" name="reset">
+                    <button class="btn waves-effect waves-light" ng-click="reset()">
                         Reset <i class="material-icons bottom">cancel</i>
                     </button>
                 </div>

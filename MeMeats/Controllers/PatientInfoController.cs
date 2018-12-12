@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MeMeats.Controllers
+namespace HCIProject.Controllers
 {
     public class PatientInfoController : Controller
     {
@@ -13,7 +13,20 @@ namespace MeMeats.Controllers
         // GET: PatientInfo
         public ActionResult Index()
         {
-            return View("PatientInfo", "", _builder.GetNoResult());
+            return View("PatientInfo", "", "");
+        }
+
+        [HttpGet]
+        public ActionResult GetData()
+        {
+
+            // param value
+            string pid = Request.QueryString["pid"];
+
+            //call query DB
+            string content = _builder.GetPatientData(pid);
+            return Content(content);
         }
     }
+
 }

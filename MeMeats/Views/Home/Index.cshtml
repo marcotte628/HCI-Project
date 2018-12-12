@@ -47,142 +47,55 @@
                 <div class="card-content ">
                     <span class="card-title">List of Patients:</span>
                     <!--Data Table-->
-                    <table id="patients" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Photo</th>
-                                <th>Patient Information</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="width:15%;"><img ng-click="redirect('show')" src="../images/default.PNG" style="height: 8em;"></td>
-                                <!--https://catking.in/chandni-kapadia/default-profile-2/-->
-                                <td>
-                                    <p>
-                                        Name: ABCD
-                                    </p>
-                                    <p>
-                                        DOB: 10-10-1990
-                                    </p>
-                                    <p>
-                                        Last visited: 10-10-2018
-                                    </p>
-                                </td>
-                                <td style="width: 20%;">
-                                    <button class="btn-floating btn-large waves-effect waves-light purple" ng-click="redirect('compare')">
-                                        <i class="material-icons">insert_chart</i>
-                                    </button>
-                                    <button class="btn-floating btn-large waves-effect waves-light light-blue" ng-click="redirect('edit')">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button class="btn-floating btn-large waves-effect waves-light orange" ng-click="redirect('delete')">
-                                        <i class="material-icons">delete_forever</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:15%;"><img ng-click="redirect('show')" src="../images/happy.PNG" style="height: 8em;"></td>
-                                <!--https://www.amazon.com/Smiley-Tire-Cover-popular-contact/dp/B001FO9WEU-->
-                                <td>
-                                    <p>
-                                        Name: ABCD
-                                    </p>
-                                    <p>
-                                        DOB: 10-10-1990
-                                    </p>
-                                    <p>
-                                        Last visited: 10-10-2018
-                                    </p>
-                                </td>
-                                <td style="width: 20%;">
-                                    <button class="btn-floating btn-large waves-effect waves-light purple" ng-click="redirect('compare')">
-                                        <i class="material-icons">insert_chart</i>
-                                    </button>
-                                    <button class="btn-floating btn-large waves-effect waves-light light-blue" ng-click="redirect('edit')">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button class="btn-floating btn-large waves-effect waves-light orange" ng-click="redirect('delete')">
-                                        <i class="material-icons">delete_forever</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:15%;"><img ng-click="redirect('show')" src="../images/default.PNG" style="height: 8em;"></td>
-                                <!--https://catking.in/chandni-kapadia/default-profile-2/-->
-                                <td>
-                                    <p>
-                                        Name: ABCD
-                                    </p>
-                                    <p>
-                                        DOB: 10-10-1990
-                                    </p>
-                                    <p>
-                                        Last visited: 10-10-2018
-                                    </p>
-                                </td>
-                                <td style="width: 20%;">
-                                    <button class="btn-floating btn-large waves-effect waves-light purple" ng-click="redirect('compare')">
-                                        <i class="material-icons">insert_chart</i>
-                                    </button>
-                                    <button class="btn-floating btn-large waves-effect waves-light light-blue" ng-click="redirect('edit')">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button class="btn-floating btn-large waves-effect waves-light orange" ng-click="redirect('delete')">
-                                        <i class="material-icons">delete_forever</i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Photo</th>
-                                <th>Patient Information</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                    <div class="displayTable">
+                        <table id="queryTable" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Photo</th>
+                                    <th>Patient Information</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in filteredList">
+                                    <td style="width:15%;"><img src="../images/default.PNG" ng-click="redirect('show', item['PID'])" style="height: 8em;"></td>
+                                    <td>
+                                        <p>Name: {{item['Name']}}</p>
+                                        <p>DOB: {{item['DOB']}}</p>
+                                        <p>Last Visit: {{item['LV']}}</p>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <button class="btn-floating btn-large waves-effect waves-light purple" ng-click="redirect('compare', item['PID'])">
+                                            <i class="material-icons">insert_chart</i>
+                                        </button>
+                                        <button class="btn-floating btn-large waves-effect waves-light light-blue" ng-click="redirect('edit', item['PID'])">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                        <button class="btn-floating btn-large waves-effect waves-light orange" ng-click="redirect('delete', item['PID'])">
+                                            <i class="material-icons">delete_forever</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Photo</th>
+                                    <th>Patient Information</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <ul uib-pagination ng-model="currentPage"
+                            total-items="list.length"
+                            max-size="maxSize"
+                            boundary-links="true"></ul>
+                    </div>
             </div>
         </div>
         <div class="col s4 m1"></div>
     </div>
 
 
-    <div class="displayTable">
-
-        <table id="queryTable" class="table table-sm table-striped table-bordered table-hover">
-            <thead>
-                <tr>
-                    <td class="bold-text" ng-repeat="(key, data) in tableDisplay">
-                        {{key}}
-                    </td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in filteredList">
-                    <td style="width:15%;"><img ng-click="redirect('show')" src="../images/default.PNG" style="height: 8em;"></td>
-                    <td >
-                        {{item['Patient']}}
-                    </td>
-                    <td style="width: 20%;">
-                        <button class="btn-floating btn-large waves-effect waves-light purple" ng-click="redirect('compare')">
-                            <i class="material-icons">insert_chart</i>
-                        </button>
-                        <button class="btn-floating btn-large waves-effect waves-light light-blue" ng-click="redirect('edit')">
-                            <i class="material-icons">edit</i>
-                        </button>
-                        <button class="btn-floating btn-large waves-effect waves-light orange" ng-click="redirect('delete')">
-                            <i class="material-icons">delete_forever</i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <ul uib-pagination ng-model="currentPage"
-            total-items="list.length"
-            max-size="maxSize"
-            boundary-links="true"></ul>
+    
     </div>
 </div>

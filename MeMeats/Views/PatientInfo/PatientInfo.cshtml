@@ -22,10 +22,10 @@
         <div class="col s12 m6">
             <div class="card" style="width: 42em;">
                 <div class="card-image">
-                    <img src="../assests/images/logo.jpg" style="height: 28em;">
+                    <img src="../images/default.PNG" style="height: 28em;">
                 </div>
                 <div class="card-action">
-                    <a href="#">Edit</a>
+                    <a ng-click="redirect('edit')">Edit</a>
                 </div>
             </div>
         </div>
@@ -35,10 +35,11 @@
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
                         <span class="card-title">Patient Information:</span>
-                        <p>
-                            I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.
-                        </p>
+                        <p>Name: {{name}}</p>
+                        <p>DOB: {{DOB}}</p>
+                        <p>Height: {{height}} cm</p>
+                        <p>Weight: {{weight}} lbs</p>
+
                     </div>
                 </div>
             </div>
@@ -47,14 +48,13 @@
                     <div class="card-content white-text">
                         <span class="card-title">Notes:</span>
                         <p>
-                            I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.
+                            {{notes}}
                         </p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="diagnostics">
+                <button class="btn waves-effect waves-light" ng-click="redirect('compare')">
                     Show Diagnostics <i class="material-icons bottom">insert_chart</i>
                 </button>
             </div>

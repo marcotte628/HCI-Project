@@ -38,22 +38,20 @@ sqlQueryModule.controller("homePageController", function ($scope, $http, $window
         });
     };
 
-    $scope.redirect = function (location) {
+    $scope.redirect = function (location, pid) {
         var uid = window.location.href.split('?')[1].split('=')[1];
 
         if (location === 'compare') {
-            $window.location.href = '/ComparePatient?uid=' + uid;
+            $window.location.href = '/ComparePatient?uid=' + uid + '&pid=' + pid;
         } else if (location === 'edit') {
-            $window.location.href = '/EditPatient?uid=' + uid;
+            $window.location.href = '/EditPatient?uid=' + uid + '&pid=' + pid;
         } else if (location === 'add') {
-            $window.location.href = '/AddPatient?uid=' + uid;
+            $window.location.href = '/AddPatient?uid=' + uid + '&pid=' + pid;
         } else if (location === 'show') {
-            $window.location.href = '/PatientInfo?uid=' + uid;
+            $window.location.href = '/PatientInfo?uid=' + uid + '&pid=' + pid;
         } else if (location === 'delete') {
-            alert("DELETE!");
+            alert("Deleting patient with ID number " + pid);
         }
     };
 
-
-    $scope.GetData();
 });

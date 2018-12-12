@@ -8,7 +8,8 @@ namespace HCIProject.Controllers
         private DataRetriever dataretreiver = new DataRetriever();
         public ActionResult Index()
         {
-            return View("Index", "", dataretreiver.GetNoResult()); 
+            string stuff = dataretreiver.GetAllPatientData();
+            return View("Index", "", stuff); 
         }
 
         [HttpGet]
@@ -25,7 +26,6 @@ namespace HCIProject.Controllers
 
             //call query DB
             string content = dataretreiver.GetAllPatientData();
-            content = dataretreiver.GetNoResult();
             return Content(content);
         }
 

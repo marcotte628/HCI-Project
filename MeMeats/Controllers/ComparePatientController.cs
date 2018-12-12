@@ -13,7 +13,7 @@ namespace HCIProject.Controllers
         // GET: ComparePatient
         public ActionResult Index()
         {
-            return View("ComparePatient", "", _builder.GetNoResult());
+            return View("ComparePatient", "", "");
         }
     }
 }
