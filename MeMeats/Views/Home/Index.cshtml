@@ -26,9 +26,10 @@
         <div class="col s4 m2"></div>
         <div class="col s8 m5" style="margin-top: 5em;">
             <div class="input-field">
-                <input id="search" type="search">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
+                <input id="search" ng-model="search">
+                <a ng-click="searchList()" class="btn btn-large waves-effect waves-light light-blue">
+                    <i class="material-icons">search</i> Search
+                </a>
             </div>
         </div>
         <div class="col s2 m1"></div>
