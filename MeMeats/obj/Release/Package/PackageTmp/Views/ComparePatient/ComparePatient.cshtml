@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Compare Patient";
+}
+
+
+
+<div ng-controller="comparePatientController">
+
+    <div class="col s16 m12">
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <i class="material-icons" style="padding-top:0.5em;padding-bottom:0.5em;">
+                    <a ng-click="redirect('home')" class="btn-floating btn-large waves-effect waves-light red">
+                        <i class="material-icons">chevron_left</i>
+                    </a>
+                </i>
+                <h3 style="position: absolute;margin-left: 9.5em;margin-top: 0em; padding-top: 0.4em;">
+                    Compare Patient Information
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-4"> <img src="../images/default.PNG" style="height: 15em;"></div>
+                <div class="col-sm-3">
+                    <p>
+                        Name: {{name}}
+                    </p>
+                    <p>
+                        DOB: {{DOB}}
+                    </p>
+                    <p>
+                        Last visited: {{lv}}
+                    </p>
+
+                </div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Notes:</span>
+                        <p>
+                            {{notes}}
+                        </p>
+                    </div>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a data-toggle="pill" href="#avw">Age Versus Weight</a></li>
+                    <li><a data-toggle="pill" href="#hvw">Height Versus Weight</a></li>
+                    <li><a data-toggle="pill" href="#avh">Age Versus Height</a></li>
+                </ul>
+
+            </div>
+            </div>
+        <div class="col-sm-6">
+            <div class="card-image">
+
+                <input type="hidden" id="heightValue" value="{{height}}" />
+                <input type="hidden" id="weightValue" value="{{weight}}" />
+                <input type="hidden" id="ageValue" value="{{age}}" />
+                <div class="tab-content">
+                    <div id="avw" class="tab-pane fade in">
+
+                        <div id="avwg" style="width: 60em; height: 60em;"></div>
+                        <script type="text/javascript">
+                            google.charts.load('current', { 'packages': ['corechart'] });
+                            google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                                var w = document.getElementById("weightValue").value;
+                                var a = document.getElementById("ageValue").value;
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Age', 'Weight'],
+                                    [7, 60],
+                                    [6, 85],
+                                    [13, 114],
+                                    [5, 55],
+                                    [3, 25],
+                                    [16, 170],
+                                    [21, 130],
+                                    [29, 150],
+                                    [20, 105],
+                                    [a, w],
+                                ]);
+
+                                var avwg = new google.visualization.ScatterChart(document.getElementById('avwg'));
+                                avwg.draw(data);
+                            }
+                        </script>
+                    </div>
+                    <div id="hvw" class="tab-pane fade in active">
+
+                        <div id="hvwg" style="width: 60em; height: 60em;"></div>
+                        <script type="text/javascript">
+                            google.charts.load('current', { 'packages': ['corechart'] });
+                            google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                                var h = document.getElementById("heightValue").value;
+                                var w = document.getElementById("weightValue").value;
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Height', 'Weight'],
+                                    [57, 60],
+                                    [55, 85],
+                                    [103, 114],
+                                    [60, 55],
+                                    [41, 25],
+                                    [160, 170],
+                                    [210, 130],
+                                    [170, 150],
+                                    [111, 105],
+                                    [h, w],
+                                ]);
+
+                                var hvwg = new google.visualization.ScatterChart(document.getElementById('hvwg'));
+                                hvwg.draw(data);
+                            }
+                        </script>
+                    </div>
+                    <div id="avh" class="tab-pane fade in">
+
+                        <div id="avhg" style="width: 60em; height: 60em;"></div>
+                        <script type="text/javascript">
+                            google.charts.load('current', { 'packages': ['corechart'] });
+                            google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                                var h = document.getElementById("heightValue").value;
+                                var a = document.getElementById("ageValue").value;
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Age', 'Height'],
+                                    [5, 50],
+                                    [7, 65],
+                                    [12, 80],
+                                    [5, 65],
+                                    [4, 35],
+                                    [17, 205],
+                                    [21, 130],
+                                    [29, 150],
+                                    [23, 105],
+                                    [a, h],
+                                ]);
+
+                                var avhg = new google.visualization.ScatterChart(document.getElementById('avhg'));
+                                avhg.draw(data);
+                            }
+                        </script>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="diagnostics">
+                    Return to Patient
+                </button>
+            </div>
+                </div>
+
+
+            </div>
+
+</div> 

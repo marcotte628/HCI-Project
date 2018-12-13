@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "AddPatient";
+}
+
+<div ng-controller="addPatientController">
+    <div class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <i class="material-icons" style="padding-top:0.5em;padding-bottom:0.5em;">
+                    <a ng-click="redirect('home')" class="btn-floating btn-large waves-effect waves-light red">
+                        <i class="material-icons">chevron_left</i>
+                    </a>
+                </i>
+                <h3 style="position: absolute;margin-left: 14em;margin-top: 0em; padding-top: 0.4em;">Add Patient</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card" style="width: 42em; color: black;">
+                <div class="card-image">
+                    <img src="../images/default.PNG" style="height: 30em;">
+                    <!--https://catking.in/chandni-kapadia/default-profile-2/-->
+                    <span class="card-title" style="color: black;">Upload Image</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4 m5">
+            <div class="card darken-1">
+                <div class="card-content">
+                    <span class="card-title">Enter Patient Information:</span>
+                    <form>
+                        <label for="name">Name*</label>
+                        <input id="name" type="text" class="validate" ng-model="name">
+                        <label for="dob" style="width: 13em;">Date of Birth*</label>
+                        <input type="text" id="dob" class="datepicker" ng-model="DOB">
+                        <label for="height">Height(cm)*</label>
+                        <input id="height" type="number" class="validate" ng-model="height"><br />
+                        <label for="weight">Weight(lbs)*</label>
+                        <input id="weight" type="number" class="validate" ng-model="weight">
+                        <label for="notes">Notes*</label>
+                        <textarea id="notes" rows="10" cols="50" style="resize: none; height: 5em;" ng-model="notes"></textarea>
+                    </form>
+                </div>
+                <div class="card-action">
+                    <button class="btn waves-effect waves-light" ng-click="add()">
+                        Add Patient <i class="material-icons bottom">add</i>
+                    </button>
+                    <button class="btn waves-effect waves-light" ng-click="reset()">
+                        Reset <i class="material-icons bottom">cancel</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div> 
