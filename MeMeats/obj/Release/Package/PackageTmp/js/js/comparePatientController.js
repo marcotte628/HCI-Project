@@ -3,10 +3,14 @@ sqlQueryModule.controller("comparePatientController", function ($scope, $http, $
 
 
     $scope.redirect = function (location) {
-        var uid = window.location.href.split('?')[1].split('=')[1];
+
+        var uid = window.location.href.split('?')[1].split('=')[1].substring(0,1);
+        var pid = window.location.href.split('?')[1].split('=')[2];
         if (location === 'home') {
             $window.location.href = '/Home?uid=' + uid;
-        }
+        } else if(location === 'patient') {
+            $window.location.href = '/PatientInfo?uid=' + uid + '&pid=' + pid;
+        } 
     };
 
     $scope.getPatientData = function () {

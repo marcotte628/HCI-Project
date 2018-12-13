@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Reflection;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Web;
 
 namespace HCIProject.Models.DataRetriever
@@ -11,6 +13,14 @@ namespace HCIProject.Models.DataRetriever
     {
         private ResultParser resultParser = new ResultParser();
         private SqlHandler sqlHandler;
+
+        private void GrantAccess(string fullPath)
+        {
+            DirectoryInfo dInfo = new DirectoryInfo(fullPath);
+            DirectorySecurity dSecurity = dInfo.GetAccessControl();
+            dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+            dInfo.SetAccessControl(dSecurity);
+        }
 
         public string GetQueryResult(string procedureName, string[] parameters, object[] values)
         {
@@ -91,6 +101,7 @@ namespace HCIProject.Models.DataRetriever
             // add the new patient info to newData
             newData += "{ Photo: '...', PID: '" + pid + "', Name: '" + name + "', DOB: '" + dob + "', LV: '" + dateTime.ToString("MM/dd/yyyy") + "', Height: '" + height + "', Weight: '" + weight + "', Notes: '" + note + "' },";
             //overwrite file
+            GrantAccess(patientsFile);
             System.IO.File.WriteAllText(@patientsFile, newData);
             return GetPatientData(pid);
         }
@@ -127,6 +138,7 @@ namespace HCIProject.Models.DataRetriever
                 //build up the new Patients.txt string
 
                 newData = newData.Substring(0, newData.Length - 1);
+            GrantAccess(patientsFile);
                 //overwrite file
                 System.IO.File.WriteAllText(@patientsFile, newData);
                 return GetPatientData(pid);

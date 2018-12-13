@@ -4,6 +4,7 @@ sqlQueryModule.controller("homePageController", function ($scope, $http, $window
     $scope.list = bootstrappedData.list;
     $scope.tableDisplay = $scope.list[0];
     $scope.filteredList = $scope.list;
+    $scope.search = "";
 
     $scope.GetData = function () {
         var uid = window.location.href.split('?')[1].split('=')[1];
@@ -34,9 +35,22 @@ sqlQueryModule.controller("homePageController", function ($scope, $http, $window
         $scope.$watch("currentPage + numPerPage", function () {
             var begin = ($scope.currentPage - 1) * $scope.numPerPage;
             var end = begin + $scope.numPerPage;
-            $scope.filteredList = $scope.list.slice(begin, end);
+            $scope.filteredList = myList.slice(begin, end);
         });
     };
+
+    $scope.searchList = function () {
+        $scope.arr = [];
+        angular.forEach($scope.list, function (each) {
+
+            if (each['Name'].toLowerCase().indexOf($scope.search.toLowerCase()) !== -1) {
+                $scope.arr.push(each);
+            }  
+        });
+        $scope.search = "";
+        $scope.doFiltering($scope.arr);
+    };
+
 
     $scope.redirect = function (location, pid) {
         var uid = window.location.href.split('?')[1].split('=')[1];
@@ -51,7 +65,7 @@ sqlQueryModule.controller("homePageController", function ($scope, $http, $window
             $window.location.href = '/PatientInfo?uid=' + uid + '&pid=' + pid;
         } else if (location === 'delete') {
             alert("Deleting patient with ID number " + pid);
-        }
+        } 
     };
 
 });
